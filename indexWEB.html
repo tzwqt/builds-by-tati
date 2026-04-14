@@ -349,15 +349,23 @@
     }
 
     .portfolio-thumb {
-      height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
+      height: 220px;
+      overflow: hidden;
+      background: #f0ebe4;
     }
 
-    .portfolio-thumb.kae { background: linear-gradient(135deg, #c8b4d4 0%, #b89fc7 100%); }
-    .portfolio-thumb.port { background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%); }
+    .portfolio-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .portfolio-card:hover .portfolio-thumb img {
+      transform: scale(1.03);
+    }
 
     .portfolio-info {
       padding: 20px 24px;
@@ -650,7 +658,9 @@
       <div class="portfolio-cards">
 
         <a href="https://kaes-kloset.vercel.app" target="_blank" class="portfolio-card">
-          <div class="portfolio-thumb kae">👗</div>
+          <div class="portfolio-thumb">
+            <img src="images/kaes-kloset.png" alt="Kae's Kloset website screenshot" />
+          </div>
           <div class="portfolio-info">
             <strong>Kae's Kloset</strong>
             <span>Boutique · Appointment booking · Brand identity</span>
@@ -659,11 +669,35 @@
         </a>
 
         <a href="https://tati-portfolio.vercel.app" target="_blank" class="portfolio-card">
-          <div class="portfolio-thumb port">💻</div>
+          <div class="portfolio-thumb">
+            <img src="images/tati-portfolio.png" alt="Personal Portfolio website screenshot" />
+          </div>
           <div class="portfolio-info">
             <strong>Personal Portfolio</strong>
             <span>Software engineering · Robotics · Project showcase</span>
             <div class="portfolio-link">tati-portfolio.vercel.app ↗</div>
+          </div>
+        </a>
+
+        <a href="https://exxon-hisd-portal.vercel.app" target="_blank" class="portfolio-card">
+          <div class="portfolio-thumb">
+            <img src="images/exxon-hisd-portal.png" alt="ExxonMobil HISD Portal screenshot" />
+          </div>
+          <div class="portfolio-info">
+            <strong>ExxonMobil HISD Portal</strong>
+            <span>Internship · Student portal · Enterprise web app</span>
+            <div class="portfolio-link">exxon-hisd-portal.vercel.app ↗</div>
+          </div>
+        </a>
+
+        <a href="https://tlc-ministries.vercel.app" target="_blank" class="portfolio-card">
+          <div class="portfolio-thumb">
+            <img src="images/tlc-ministries.png" alt="TLC Ministries website screenshot" />
+          </div>
+          <div class="portfolio-info">
+            <strong>TLC Ministries</strong>
+            <span>Church · Events · Community web presence</span>
+            <div class="portfolio-link">tlc-ministries.vercel.app ↗</div>
           </div>
         </a>
 
