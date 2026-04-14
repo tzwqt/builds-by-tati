@@ -278,6 +278,35 @@
     .service-card.sc-pink:hover  { box-shadow: 0 10px 0 #c97a8f, 0 20px 40px rgba(201,122,143,0.4); }
     .service-card.sc-green:hover { box-shadow: 0 10px 0 #1a3825, 0 20px 40px rgba(29,58,37,0.45); }
     .service-card.sc-orange:hover{ box-shadow: 0 10px 0 #8c3d14, 0 20px 40px rgba(140,61,20,0.45); }
+    .service-card.sc-cream:hover { box-shadow: 0 10px 0 #c9bfb3, 0 20px 40px rgba(160,145,130,0.35); }
+    .service-card.sc-gray:hover  { box-shadow: 0 10px 0 #1a1a1a, 0 20px 40px rgba(20,20,20,0.45); }
+
+    .service-card.sc-cream {
+      background: linear-gradient(145deg, #fdf8f4 0%, #f0e8df 100%);
+      box-shadow:
+        0 8px 0 #c9bfb3,
+        0 14px 28px rgba(160,145,130,0.3);
+      color: #2e2e2e;
+    }
+    .service-card.sc-gray {
+      background: linear-gradient(145deg, #4a4a4a 0%, #2e2e2e 100%);
+      box-shadow:
+        0 8px 0 #111,
+        0 14px 28px rgba(10,10,10,0.45);
+    }
+
+    .service-card.sc-cream .service-name,
+    .service-card.sc-cream .service-type,
+    .service-card.sc-cream .service-features,
+    .service-card.sc-cream li { color: #2e2e2e; }
+    .service-card.sc-cream .service-price { color: var(--green); }
+    .service-card.sc-cream .service-divider { background: rgba(0,0,0,0.1); }
+    .service-card.sc-cream li::before { color: var(--green); }
+    .service-card.sc-cream .service-type { color: #7a7a7a; }
+
+    .service-card.sc-gray .service-divider { background: rgba(255,255,255,0.15); }
+    .service-card.sc-gray li::before { color: var(--pink); }
+    .service-card.sc-gray .service-price { color: var(--pink); }
 
     /* colour-aware text overrides */
     .service-card.sc-pink .service-name,
@@ -686,7 +715,7 @@
           </ul>
         </div>
 
-        <div class="service-card sc-green">
+        <div class="service-card sc-cream">
           <div class="service-name">Website Redesign</div>
           <div class="service-type">One-time build</div>
           <div class="service-price"><sup>$</sup>200<sub>–350</sub></div>
@@ -713,7 +742,7 @@
           </ul>
         </div>
 
-        <div class="service-card sc-orange">
+        <div class="service-card sc-gray">
           <div class="service-name">Monthly Upkeep</div>
           <div class="service-type">Retainer · optional add-on</div>
           <div class="service-price"><sup>$</sup>50<sub>/mo</sub></div>
