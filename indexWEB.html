@@ -216,63 +216,30 @@
       border-bottom: 1px solid #ece8e3;
     }
 
-    .services-carousel-wrap {
-      perspective: 1000px;
-      perspective-origin: 50% 40%;
-      height: 420px;
-      position: relative;
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 960px;
       margin: 0 auto;
-    }
-
-    .services-carousel-wrap::before,
-    .services-carousel-wrap::after {
-      content: '';
-      position: absolute;
-      top: 0; bottom: 0;
-      width: 140px;
-      z-index: 2;
-      pointer-events: none;
-    }
-    .services-carousel-wrap::before {
-      left: 0;
-      background: linear-gradient(to right, #fff 0%, transparent 100%);
-    }
-    .services-carousel-wrap::after {
-      right: 0;
-      background: linear-gradient(to left, #fff 0%, transparent 100%);
-    }
-
-    .services-ring {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      transform-style: preserve-3d;
-      animation: ring-spin 28s linear infinite;
-    }
-
-    .services-ring:hover {
-      animation-play-state: paused;
-    }
-
-    @keyframes ring-spin {
-      from { transform: rotateY(0deg); }
-      to   { transform: rotateY(360deg); }
     }
 
     .service-card {
       border: none;
       border-radius: 24px;
       padding: 28px 24px;
-      position: absolute;
-      width: 210px;
-      top: 50%;
-      left: 50%;
-      margin-left: -105px;
-      transform: rotateY(calc(60deg * var(--i))) translateZ(310px) translateY(-50%);
-      transition: box-shadow 0.2s;
-      backface-visibility: hidden;
+      position: relative;
       color: #fff;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
     }
+
+    /* each card gets its own resting tilt */
+    .service-card:nth-child(1) { transform: rotate(-2deg); }
+    .service-card:nth-child(2) { transform: rotate(1.5deg); }
+    .service-card:nth-child(3) { transform: rotate(-1deg); }
+    .service-card:nth-child(4) { transform: rotate(2.5deg); }
+    .service-card:nth-child(5) { transform: rotate(-2.5deg); }
+    .service-card:nth-child(6) { transform: rotate(1deg); }
 
     /* 3D depth effect via stacked shadows */
     .service-card.sc-pink {
@@ -306,11 +273,11 @@
     }
 
     .service-card:hover {
-      box-shadow:
-        0 4px 0 rgba(0,0,0,0.25),
-        0 20px 40px rgba(0,0,0,0.2);
-      transform: rotateY(calc(60deg * var(--i))) translateZ(310px) translateY(calc(-50% - 4px));
+      transform: rotate(0deg) translateY(-8px) !important;
     }
+    .service-card.sc-pink:hover  { box-shadow: 0 10px 0 #c97a8f, 0 20px 40px rgba(201,122,143,0.4); }
+    .service-card.sc-green:hover { box-shadow: 0 10px 0 #1a3825, 0 20px 40px rgba(29,58,37,0.45); }
+    .service-card.sc-orange:hover{ box-shadow: 0 10px 0 #8c3d14, 0 20px 40px rgba(140,61,20,0.45); }
 
     /* colour-aware text overrides */
     .service-card.sc-pink .service-name,
@@ -332,31 +299,12 @@
 
     .service-card.featured { outline: 3px solid rgba(255,255,255,0.5); }
 
-    @media (max-width: 700px) {
-      .services-carousel-wrap {
-        perspective: none;
-        height: auto;
-      }
-      .services-ring {
-        position: static;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        transform: none !important;
-        animation: none;
-      }
-      .service-card {
-        position: static;
-        width: 100%;
-        margin: 0;
-        transform: none !important;
-      }
-      .service-card:hover {
-        transform: translateY(-4px) !important;
-      }
+    @media (max-width: 720px) {
+      .services-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
     }
     @media (max-width: 480px) {
-      .services-ring { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { transform: none !important; }
     }
 
     .feat-badge {
@@ -692,10 +640,9 @@
       <div class="section-label">Pricing</div>
       <h2 class="section-title">Simple, transparent rates.</h2>
       <p class="section-sub">Every site is hand-coded — no Wix, no Squarespace, no templates. You get something built specifically for you, deployed and ready to go live.</p>
-      <div class="services-carousel-wrap">
-      <div class="services-ring">
+      <div class="services-grid">
 
-        <div class="service-card sc-pink" style="--i:0">
+        <div class="service-card sc-pink">
           <div class="service-name">Landing Page</div>
           <div class="service-type">One-time build</div>
           <div class="service-price"><sup>$</sup>175</div>
@@ -709,7 +656,7 @@
           </ul>
         </div>
 
-        <div class="service-card sc-green" style="--i:1">
+        <div class="service-card sc-green">
           <div class="service-name">Starter Site</div>
           <div class="service-type">One-time build</div>
           <div class="service-price"><sup>$</sup>350</div>
@@ -723,7 +670,7 @@
           </ul>
         </div>
 
-        <div class="service-card sc-orange featured" style="--i:2">
+        <div class="service-card sc-orange featured">
           <div class="feat-badge">Most Popular</div>
           <div class="service-name">Full Build</div>
           <div class="service-type">One-time build</div>
@@ -739,7 +686,7 @@
           </ul>
         </div>
 
-        <div class="service-card sc-green" style="--i:3">
+        <div class="service-card sc-green">
           <div class="service-name">Website Redesign</div>
           <div class="service-type">One-time build</div>
           <div class="service-price"><sup>$</sup>200<sub>–350</sub></div>
@@ -753,7 +700,7 @@
           </ul>
         </div>
 
-        <div class="service-card sc-pink" style="--i:4">
+        <div class="service-card sc-pink">
           <div class="service-name">Website + Logo</div>
           <div class="service-type">Add-on · +$50–75</div>
           <div class="service-price"><sup>+$</sup>50<sub>–75</sub></div>
@@ -766,7 +713,7 @@
           </ul>
         </div>
 
-        <div class="service-card sc-orange" style="--i:5">
+        <div class="service-card sc-orange">
           <div class="service-name">Monthly Upkeep</div>
           <div class="service-type">Retainer · optional add-on</div>
           <div class="service-price"><sup>$</sup>50<sub>/mo</sub></div>
@@ -780,8 +727,7 @@
         </div>
 
       </div>
-      </div>
-      <p style="text-align:center; margin-top:32px; font-size:0.82rem; color:var(--muted);">
+      <p style="text-align:center; margin-top:40px; font-size:0.82rem; color:var(--muted);">
         Need something custom? Reach out and we'll figure it out together.
       </p>
     </div>
