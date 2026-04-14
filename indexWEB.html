@@ -219,7 +219,7 @@
     .services-carousel-wrap {
       perspective: 1000px;
       perspective-origin: 50% 40%;
-      height: 480px;
+      height: 420px;
       position: relative;
       margin: 0 auto;
     }
@@ -229,7 +229,7 @@
       content: '';
       position: absolute;
       top: 0; bottom: 0;
-      width: 120px;
+      width: 140px;
       z-index: 2;
       pointer-events: none;
     }
@@ -260,24 +260,77 @@
     }
 
     .service-card {
-      border: 1.5px solid #e8e2db;
-      border-radius: 6px;
-      padding: 36px 30px;
+      border: none;
+      border-radius: 24px;
+      padding: 28px 24px;
       position: absolute;
-      width: 260px;
+      width: 210px;
       top: 50%;
       left: 50%;
-      margin-left: -130px;
-      transform: rotateY(calc(60deg * var(--i))) translateZ(360px) translateY(-50%);
-      transition: border-color 0.2s, box-shadow 0.2s;
-      background: var(--cream);
+      margin-left: -105px;
+      transform: rotateY(calc(60deg * var(--i))) translateZ(310px) translateY(-50%);
+      transition: box-shadow 0.2s;
       backface-visibility: hidden;
+      color: #fff;
+    }
+
+    /* 3D depth effect via stacked shadows */
+    .service-card.sc-pink {
+      background: linear-gradient(145deg, #f5cfd8 0%, #eda8ba 100%);
+      box-shadow:
+        0 8px 0 #c97a8f,
+        0 14px 28px rgba(201,122,143,0.35);
+      color: #3a1a22;
+    }
+    .service-card.sc-green {
+      background: linear-gradient(145deg, #3d7a52 0%, #2d5a3d 100%);
+      box-shadow:
+        0 8px 0 #1a3825,
+        0 14px 28px rgba(29,58,37,0.4);
+    }
+    .service-card.sc-orange {
+      background: linear-gradient(145deg, #d97840 0%, #c8612a 100%);
+      box-shadow:
+        0 8px 0 #8c3d14,
+        0 14px 28px rgba(140,61,20,0.4);
+    }
+
+    /* top-left highlight to sell the 3D curve */
+    .service-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.22) 0%, transparent 55%);
+      pointer-events: none;
     }
 
     .service-card:hover {
-      border-color: var(--green);
-      box-shadow: 0 12px 32px rgba(45,90,61,0.12);
+      box-shadow:
+        0 4px 0 rgba(0,0,0,0.25),
+        0 20px 40px rgba(0,0,0,0.2);
+      transform: rotateY(calc(60deg * var(--i))) translateZ(310px) translateY(calc(-50% - 4px));
     }
+
+    /* colour-aware text overrides */
+    .service-card.sc-pink .service-name,
+    .service-card.sc-pink .service-type,
+    .service-card.sc-pink .service-price,
+    .service-card.sc-pink .service-features,
+    .service-card.sc-pink li { color: #3a1a22; }
+    .service-card.sc-pink .service-price { color: #7a2840; }
+    .service-card.sc-pink .service-divider { background: rgba(58,26,34,0.15); }
+    .service-card.sc-pink li::before { color: #7a2840; }
+
+    .service-card.sc-green .service-divider { background: rgba(255,255,255,0.2); }
+    .service-card.sc-green li::before { color: var(--pink); }
+    .service-card.sc-green .service-price { color: var(--pink); }
+
+    .service-card.sc-orange .service-divider { background: rgba(255,255,255,0.2); }
+    .service-card.sc-orange li::before { color: #fde4cc; }
+    .service-card.sc-orange .service-price { color: #fde4cc; }
+
+    .service-card.featured { outline: 3px solid rgba(255,255,255,0.5); }
 
     @media (max-width: 700px) {
       .services-carousel-wrap {
@@ -287,7 +340,7 @@
       .services-ring {
         position: static;
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 16px;
         transform: none !important;
         animation: none;
@@ -298,75 +351,70 @@
         margin: 0;
         transform: none !important;
       }
+      .service-card:hover {
+        transform: translateY(-4px) !important;
+      }
     }
-
-    .service-card.featured {
-      background: var(--green);
-      border-color: var(--green);
+    @media (max-width: 480px) {
+      .services-ring { grid-template-columns: 1fr; }
     }
-
-    .service-card.featured * { color: #fff !important; }
-    .service-card.featured .service-price { color: var(--pink) !important; }
-    .service-card.featured .feat-badge { background: var(--orange); }
-    .service-card.featured .service-divider { background: rgba(255,255,255,0.2); }
-    .service-card.featured li::before { color: var(--pink) !important; }
 
     .feat-badge {
       position: absolute;
-      top: -12px;
-      left: 24px;
-      background: var(--orange);
-      color: #fff;
-      font-size: 0.65rem;
-      font-weight: 500;
+      top: -11px;
+      left: 20px;
+      background: rgba(255,255,255,0.9);
+      color: var(--orange);
+      font-size: 0.62rem;
+      font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 2px;
+      padding: 3px 10px;
+      border-radius: 20px;
     }
 
     .service-name {
       font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      color: var(--dark);
-      margin-bottom: 6px;
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 4px;
     }
 
     .service-type {
-      font-size: 0.78rem;
-      color: var(--muted);
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.7);
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .service-price {
-      font-size: 2.2rem;
+      font-size: 1.9rem;
       font-weight: 300;
-      color: var(--green);
+      color: #fff;
       line-height: 1;
       margin-bottom: 4px;
     }
 
-    .service-price sup { font-size: 1rem; vertical-align: super; }
-    .service-price sub { font-size: 0.85rem; color: var(--muted); }
+    .service-price sup { font-size: 0.9rem; vertical-align: super; }
+    .service-price sub { font-size: 0.78rem; color: rgba(255,255,255,0.65); }
 
     .service-divider {
       height: 1px;
-      background: #e8e2db;
-      margin: 20px 0;
+      background: rgba(255,255,255,0.2);
+      margin: 16px 0;
     }
 
     .service-features {
       list-style: none;
-      font-size: 0.87rem;
-      color: var(--text);
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.9);
       line-height: 1.6;
     }
 
     .service-features li {
-      padding: 5px 0;
-      padding-left: 18px;
+      padding: 4px 0;
+      padding-left: 16px;
       position: relative;
     }
 
@@ -374,7 +422,7 @@
       content: '✓';
       position: absolute;
       left: 0;
-      color: var(--green);
+      color: rgba(255,255,255,0.7);
       font-size: 0.8rem;
     }
 
@@ -647,7 +695,7 @@
       <div class="services-carousel-wrap">
       <div class="services-ring">
 
-        <div class="service-card" style="--i:0">
+        <div class="service-card sc-pink" style="--i:0">
           <div class="service-name">Landing Page</div>
           <div class="service-type">One-time build</div>
           <div class="service-price"><sup>$</sup>175</div>
@@ -661,7 +709,7 @@
           </ul>
         </div>
 
-        <div class="service-card" style="--i:1">
+        <div class="service-card sc-green" style="--i:1">
           <div class="service-name">Starter Site</div>
           <div class="service-type">One-time build</div>
           <div class="service-price"><sup>$</sup>350</div>
@@ -675,7 +723,7 @@
           </ul>
         </div>
 
-        <div class="service-card featured" style="--i:2">
+        <div class="service-card sc-orange featured" style="--i:2">
           <div class="feat-badge">Most Popular</div>
           <div class="service-name">Full Build</div>
           <div class="service-type">One-time build</div>
@@ -691,7 +739,7 @@
           </ul>
         </div>
 
-        <div class="service-card" style="--i:3">
+        <div class="service-card sc-green" style="--i:3">
           <div class="service-name">Website Redesign</div>
           <div class="service-type">One-time build</div>
           <div class="service-price"><sup>$</sup>200<sub>–350</sub></div>
@@ -705,7 +753,7 @@
           </ul>
         </div>
 
-        <div class="service-card" style="--i:4">
+        <div class="service-card sc-pink" style="--i:4">
           <div class="service-name">Website + Logo</div>
           <div class="service-type">Add-on · +$50–75</div>
           <div class="service-price"><sup>+$</sup>50<sub>–75</sub></div>
@@ -718,7 +766,7 @@
           </ul>
         </div>
 
-        <div class="service-card" style="--i:5">
+        <div class="service-card sc-orange" style="--i:5">
           <div class="service-name">Monthly Upkeep</div>
           <div class="service-type">Retainer · optional add-on</div>
           <div class="service-price"><sup>$</sup>50<sub>/mo</sub></div>
