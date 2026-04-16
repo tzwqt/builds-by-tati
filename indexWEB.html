@@ -216,6 +216,18 @@
       border-bottom: 1px solid #ece8e3;
     }
 
+    .services-sub-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--muted);
+      max-width: 960px;
+      margin: 0 auto 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ece8e3;
+    }
+
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -242,6 +254,7 @@
     .service-card:nth-child(6) { transform: rotate(1deg); }
     .service-card:nth-child(7) { transform: rotate(-1.5deg); }
     .service-card:nth-child(8) { transform: rotate(2deg); }
+    .service-card:nth-child(9) { transform: rotate(-1deg); }
 
     /* 3D depth effect via stacked shadows */
     .service-card.sc-pink {
@@ -680,7 +693,9 @@
       <div class="section-label">Pricing</div>
       <h2 class="section-title">Simple, transparent rates.</h2>
       <p class="section-sub">Every site is hand-coded — no Wix, no Squarespace, no templates. You get something built specifically for you, deployed and ready to go live.</p>
-      <div class="services-grid">
+      <!-- Packages -->
+      <div class="services-sub-label">Packages</div>
+      <div class="services-grid" style="margin-bottom: 60px;">
 
         <div class="service-card sc-pink">
           <div class="service-name">Landing Page</div>
@@ -740,6 +755,12 @@
           </ul>
         </div>
 
+      </div>
+
+      <!-- Add-ons -->
+      <div class="services-sub-label">Add-ons</div>
+      <div class="services-grid">
+
         <div class="service-card sc-pink">
           <div class="service-name">Website + Logo</div>
           <div class="service-type">Add-on · +$50–75</div>
@@ -778,6 +799,21 @@
             <li>Takes ~10 min on my end, saves you the confusion entirely</li>
           </ul>
           <p class="service-note">Note: Domain renewal (~$10–15/yr) is paid directly by you after the first year.</p>
+        </div>
+
+        <div class="service-card sc-cream">
+          <div class="service-name">SEO Setup</div>
+          <div class="service-type">Add-on · one-time</div>
+          <div class="service-price"><sup>+$</sup>50</div>
+          <div class="service-divider"></div>
+          <ul class="service-features">
+            <li>Meta titles & descriptions on every page</li>
+            <li>Open Graph tags for social sharing previews</li>
+            <li>XML sitemap + robots.txt</li>
+            <li>Google Search Console submission</li>
+            <li>Local SEO optimization</li>
+            <li>Pairs with any package</li>
+          </ul>
         </div>
 
         <div class="service-card sc-gray">
@@ -882,6 +918,7 @@
           <option value="logo">Website + Logo Package — add $50–75</option>
           <option value="ecommerce">E-Commerce / Shop — add $75–100</option>
           <option value="domain">Domain Setup — add $25</option>
+          <option value="seo">SEO Setup — add $50</option>
           <option value="retainer">Monthly Upkeep — $50/mo</option>
           <option value="unsure">Not sure yet, let's talk</option>
         </select>
