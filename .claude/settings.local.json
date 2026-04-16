@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk 'NR==719 || NR==724' /Users/sunbelt/Documents/builds-by-tati/indexWEB.html)",
+      "Bash(python3:*)",
+      "Bash(ls ~/Desktop/*.png)",
+      "Bash(xxd)"
+    ]
+  }
+}
