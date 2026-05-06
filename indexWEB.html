@@ -216,18 +216,6 @@
       border-bottom: 1px solid #ece8e3;
     }
 
-    .services-sub-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--muted);
-      max-width: 960px;
-      margin: 0 auto 20px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #ece8e3;
-    }
-
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -252,9 +240,6 @@
     .service-card:nth-child(4) { transform: rotate(2.5deg); }
     .service-card:nth-child(5) { transform: rotate(-2.5deg); }
     .service-card:nth-child(6) { transform: rotate(1deg); }
-    .service-card:nth-child(7) { transform: rotate(-1.5deg); }
-    .service-card:nth-child(8) { transform: rotate(2deg); }
-    .service-card:nth-child(9) { transform: rotate(-1deg); }
 
     /* 3D depth effect via stacked shadows */
     .service-card.sc-pink {
@@ -340,15 +325,6 @@
     .service-card.sc-orange .service-divider { background: rgba(255,255,255,0.2); }
     .service-card.sc-orange li::before { color: #fde4cc; }
     .service-card.sc-orange .service-price { color: #fde4cc; }
-
-    .service-note {
-      font-size: 0.74rem;
-      color: rgba(255,255,255,0.55);
-      margin-top: 12px;
-      line-height: 1.5;
-    }
-    .service-card.sc-cream .service-note { color: var(--muted); }
-    .service-card.sc-orange .service-note { color: rgba(255,255,255,0.55); }
 
     .service-card.featured { outline: 3px solid rgba(255,255,255,0.5); }
 
@@ -693,9 +669,7 @@
       <div class="section-label">Pricing</div>
       <h2 class="section-title">Simple, transparent rates.</h2>
       <p class="section-sub">Every site is hand-coded — no Wix, no Squarespace, no templates. You get something built specifically for you, deployed and ready to go live.</p>
-      <!-- Packages -->
-      <div class="services-sub-label">Packages</div>
-      <div class="services-grid" style="margin-bottom: 60px;">
+      <div class="services-grid">
 
         <div class="service-card sc-pink">
           <div class="service-name">Landing Page</div>
@@ -708,7 +682,6 @@
             <li>Contact or booking section</li>
             <li>Deployed to Vercel</li>
             <li>~1 week turnaround</li>
-            <li>Domain connection +$25 (domain ~$12/yr on you)</li>
           </ul>
         </div>
 
@@ -723,7 +696,6 @@
             <li>Contact section</li>
             <li>Deployed to Vercel</li>
             <li>1 round of revisions</li>
-            <li>Domain connection +$25 (domain ~$12/yr on you)</li>
           </ul>
         </div>
 
@@ -740,7 +712,6 @@
             <li>Mobile responsive</li>
             <li>Deployed + domain ready</li>
             <li>2 rounds of revisions</li>
-            <li>First year domain included (~$12, renewal on you)</li>
           </ul>
         </div>
 
@@ -758,12 +729,6 @@
           </ul>
         </div>
 
-      </div>
-
-      <!-- Add-ons -->
-      <div class="services-sub-label">Add-ons</div>
-      <div class="services-grid">
-
         <div class="service-card sc-pink">
           <div class="service-name">Website + Logo</div>
           <div class="service-type">Add-on · +$50–75</div>
@@ -777,50 +742,7 @@
           </ul>
         </div>
 
-        <div class="service-card sc-green">
-          <div class="service-name">E-Commerce / Shop</div>
-          <div class="service-type">Add-on · +$75–100</div>
-          <div class="service-price"><sup>+$</sup>75<sub>–100</sub></div>
-          <div class="service-divider"></div>
-          <ul class="service-features">
-            <li>Product listings</li>
-            <li>Custom order forms</li>
-            <li>Dedicated shop page</li>
-            <li>Pairs with any package</li>
-          </ul>
-        </div>
-
-        <div class="service-card sc-orange">
-          <div class="service-name">Domain Setup</div>
-          <div class="service-type">Add-on · one-time</div>
-          <div class="service-price"><sup>+$</sup>25</div>
-          <div class="service-divider"></div>
-          <ul class="service-features">
-            <li>I purchase your custom domain on your behalf (~$10–15/yr, billed to you)</li>
-            <li>Full DNS setup — connected and ready to go</li>
-            <li>yoursite.vercel.app → yoursite.com</li>
-            <li>Takes ~10 min on my end, saves you the confusion entirely</li>
-          </ul>
-          <p class="service-note">Note: Domain renewal (~$10–15/yr) is paid directly by you after the first year.</p>
-        </div>
-
-        <div class="service-card sc-cream">
-          <div class="service-name">SEO Setup</div>
-          <div class="service-type">Add-on · one-time</div>
-          <div class="service-price"><sup>+$</sup>50</div>
-          <div class="service-divider"></div>
-          <ul class="service-features">
-            <li>Meta titles & descriptions on every page</li>
-            <li>Open Graph tags for social sharing previews</li>
-            <li>XML sitemap + robots.txt</li>
-            <li>Google Search Console submission</li>
-            <li>Local SEO optimization</li>
-            <li>Pairs with any package</li>
-          </ul>
-        </div>
-
-        <div class="service-card sc-gray featured">
-          <div class="feat-badge">Most Popular</div>
+        <div class="service-card sc-gray">
           <div class="service-name">Monthly Upkeep</div>
           <div class="service-type">Retainer · optional add-on</div>
           <div class="service-price"><sup>$</sup>50<sub>/mo</sub></div>
@@ -837,61 +759,6 @@
       <p style="text-align:center; margin-top:40px; font-size:0.82rem; color:var(--muted);">
         Need something custom? Reach out and we'll figure it out together.
       </p>
-      <p style="text-align:center; margin-top:12px; font-size:0.82rem; color:var(--muted);">
-        50% deposit required to begin · 50% due on delivery · Payment via Zelle
-      </p>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="services-section">
-    <div style="max-width:800px; margin:0 auto;">
-      <div class="section-label">FAQ</div>
-      <h2 class="section-title">Common questions.</h2>
-
-      <div style="display:flex; flex-direction:column; gap:24px; margin-top:40px;">
-
-        <div>
-          <p style="font-weight:600; margin-bottom:6px;">Do I need to have a domain already?</p>
-          <p style="color:var(--muted); font-size:0.95rem;">Nope! For the Full Build ($500), the first year of your domain is included — I handle everything. For other packages, you can purchase a domain yourself (~$12/yr on Namecheap) and I'll connect it for a one-time $25 fee, or you can keep your free vercel.app link.</p>
-        </div>
-
-        <div>
-          <p style="font-weight:600; margin-bottom:6px;">How does payment work?</p>
-          <p style="color:var(--muted); font-size:0.95rem;">I take 50% upfront via Zelle to get started, and the remaining 50% is due when I deliver the finished site. No surprises.</p>
-        </div>
-
-        <div>
-          <p style="font-weight:600; margin-bottom:6px;">How long does it take?</p>
-          <p style="color:var(--muted); font-size:0.95rem;">Landing Page (~1 week), Starter Site (~2 weeks), Full Build (~3–4 weeks). Timeline starts once the deposit is received.</p>
-        </div>
-
-        <div>
-          <p style="font-weight:600; margin-bottom:6px;">What do I need to provide to get started?</p>
-          <p style="color:var(--muted); font-size:0.95rem;">Just fill out the contact form with your idea, timeline, and any inspiration. The more detail the better — logos, colors, references, anything helps.</p>
-        </div>
-
-        <div>
-          <p style="font-weight:600; margin-bottom:6px;">Will my site work on phones?</p>
-          <p style="color:var(--muted); font-size:0.95rem;">Yes, every site I build is fully mobile responsive.</p>
-        </div>
-
-        <div>
-          <p style="font-weight:600; margin-bottom:6px;">Can I make changes after the site is delivered?</p>
-          <p style="color:var(--muted); font-size:0.95rem;">Revisions are included depending on your package (1 for Starter, 2 for Full Build). After that, monthly upkeep is $50/mo and covers ongoing updates, fixes, and changes.</p>
-        </div>
-
-        <div>
-          <p style="font-weight:600; margin-bottom:6px;">Do you use Wix, Squarespace, or templates?</p>
-          <p style="color:var(--muted); font-size:0.95rem;">Never. Every site is hand-coded from scratch — HTML, CSS, and JavaScript. You own clean, real code.</p>
-        </div>
-
-        <div>
-          <p style="font-weight:600; margin-bottom:6px;">What if I already have a site and just want it redesigned?</p>
-          <p style="color:var(--muted); font-size:0.95rem;">That's the Website Redesign package — $200–350 depending on complexity. I'll rebuild it from scratch in clean code.</p>
-        </div>
-
-      </div>
     </div>
   </section>
 
@@ -903,14 +770,14 @@
       <p class="section-sub">Every project is coded by hand. Here's a look at what I've shipped recently.</p>
       <div class="portfolio-cards">
 
-        <a href="https://kaes-kloset.vercel.app" target="_blank" class="portfolio-card">
+        <a href="https://www.kaeskustomkloset.com/" target="_blank" class="portfolio-card">
           <div class="portfolio-thumb">
             <img src="images/kaes-kloset.png" alt="Kae's Kloset website screenshot" />
           </div>
           <div class="portfolio-info">
             <strong>Kae's Kloset</strong>
             <span>Boutique · Appointment booking · Brand identity</span>
-            <div class="portfolio-link">kaes-kloset.vercel.app ↗</div>
+            <div class="portfolio-link">kaeskustomkloset.com ↗</div>
           </div>
         </a>
 
@@ -960,11 +827,11 @@
     <form class="contact-form" action="https://formspree.io/f/xgorwbjr" method="POST">
       <div>
         <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" placeholder="Jane Smith" autocomplete="name" required />
+        <input type="text" id="name" name="name" placeholder="Jane Smith" required />
       </div>
       <div>
         <label for="email">Your Email</label>
-        <input type="email" id="email" name="email" placeholder="jane@email.com" autocomplete="email" required />
+        <input type="email" id="email" name="email" placeholder="jane@email.com" required />
       </div>
       <div class="full">
         <label for="service">What are you looking for?</label>
@@ -975,9 +842,6 @@
           <option value="full">Full Build (up to 6 pages) — $500 · ~3–4 weeks</option>
           <option value="redesign">Website Redesign — $200–350</option>
           <option value="logo">Website + Logo Package — add $50–75</option>
-          <option value="ecommerce">E-Commerce / Shop — add $75–100</option>
-          <option value="domain">Domain Setup — add $25</option>
-          <option value="seo">SEO Setup — add $50</option>
           <option value="retainer">Monthly Upkeep — $50/mo</option>
           <option value="unsure">Not sure yet, let's talk</option>
         </select>
@@ -1003,7 +867,6 @@
     <div class="divider-or">— or reach out directly —</div>
     <a href="mailto:buildsbytati@gmail.com" class="contact-email">✉ buildsbytati@gmail.com</a>
     <p class="note">Currently taking on new clients · Based in Houston, TX</p>
-    <p class="note" style="margin-top:8px;">Payment via Zelle · 50% deposit to start, 50% on delivery</p>
   </section>
 
   <footer>
